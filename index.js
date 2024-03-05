@@ -1,5 +1,7 @@
-const express = require('express');
-require('dotenv').config();
+import express from 'express'
+import dotenv from 'dotenv';
+
+dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const databaseUrl = process.env.DATABASE_URL;
@@ -13,4 +15,6 @@ app.listen(port,()=>{
     console.log(databaseUrl);
     console.log(`Server running on port http://localhost:${port}`);
 })
+
+
 
