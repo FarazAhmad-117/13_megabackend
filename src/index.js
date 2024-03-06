@@ -1,10 +1,13 @@
 import express from 'express'
 import dotenv from 'dotenv';
+import connectDB from './db/index.js';
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
-const databaseUrl = process.env.DATABASE_URL;
+
+connectDB();
+
 
 
 app.get('/',(req,res)=>{
@@ -13,7 +16,6 @@ app.get('/',(req,res)=>{
 
 
 app.listen(port,()=>{
-    console.log(databaseUrl);
     console.log(`Server running on port http://localhost:${port}`);
 })
 
