@@ -31,7 +31,16 @@ const userSchema = new mongoose.Schema({
             },
             message: props => `${props.value} is not a valid phone number!`
         }
-    }
+    },
+    address:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Address'
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user',
+    },
 },{timestamps:true});
 
 export const User = mongoose.model('User', userSchema);
