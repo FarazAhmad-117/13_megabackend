@@ -1,4 +1,5 @@
 import mongoose, { Collection } from 'mongoose'
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2';
 
 
 const collectionSchema = new mongoose.Schema({
@@ -24,5 +25,7 @@ const collectionSchema = new mongoose.Schema({
         }
     ]
 },{timestamps:true});
+
+collectionSchema.plugin(mongooseAggregatePaginate);
 
 export const Collection = mongoose.model('Collection', collectionSchema);

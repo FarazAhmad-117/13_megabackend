@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 
 const imageSchema = new mongoose.Schema({
@@ -30,6 +31,8 @@ const userReviewSchema = new mongoose.Schema({
     comment: String,
     images: [imageSchema]
 },{timestamps:true});
+
+userReviewSchema.plugin(mongooseAggregatePaginate);
 
 const UserReview = mongoose.model('UserReview', userReviewSchema);
 

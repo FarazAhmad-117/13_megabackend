@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2';
 
 const orderSchema = new mongoose.Schema({
     user: {
@@ -46,5 +47,7 @@ const orderSchema = new mongoose.Schema({
         enum: ['cod', 'online'], 
     },
 },{timestamps:true});
+
+orderSchema.plugin(mongooseAggregatePaginate);
 
 export const Order = mongoose.model('Order', orderSchema);

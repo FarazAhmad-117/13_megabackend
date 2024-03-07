@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const paymentSchema = new mongoose.Schema({
     order: {
@@ -27,5 +28,7 @@ const paymentSchema = new mongoose.Schema({
         default: Date.now,
     },
 });
+
+paymentSchema.plugin(mongooseAggregatePaginate);
 
 module.exports = mongoose.model('Payment', paymentSchema);

@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2';
+import mongoose from 'mongoose'
 
 const categorySchema = new mongoose.Schema({
     name: {
@@ -23,5 +24,7 @@ const categorySchema = new mongoose.Schema({
         default: true,
     },
 },{timestamps:true});
+
+categorySchema.plugin(mongooseAggregatePaginate);
 
 export const Category = mongoose.model('Category', categorySchema);
