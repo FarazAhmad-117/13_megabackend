@@ -27,13 +27,6 @@ const userSchema = new mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true,
-        unique: true,
-        validate: {
-            validator: function(v) {
-                return /^\+\d{10,15}$/.test(v);
-            },
-            message: props => `${props.value} is not a valid phone number!`
-        }
     },
     avatar:{
         type:String,  // cloudnary

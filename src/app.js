@@ -27,6 +27,8 @@ import orderRouter from './routes/order.routes.js';
 import userReviewRouter from './routes/userreview.routes.js';
 
 
+
+// Connecting routers
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/category", categoryRouter);

@@ -8,7 +8,7 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET 
 });
 
-const uploadOnCloud = async (localFilePath)=>{
+export const uploadOnCloud = async (localFilePath)=>{
     try {
         if(!localFilePath){
             return null;
@@ -19,10 +19,20 @@ const uploadOnCloud = async (localFilePath)=>{
         console.log('File uploaded successfully',response.url);
         return response;
     } catch (error) {
-        fs.unlinkSync(localFilePath);
+        // fs.unlinkSync(localFilePath);
+        console.log("Error Uploading Image",error);
         return null;
     }
 }
 
+export const deleteFromCloud = async(fileId)=>{
+    try{
+        await cloudinary.uploader.destroy(fileId);
+        return true;
+    }catch(error){
+        console.log("Error Deleting Image",error);
+        return null;
+    }
+}
 
 

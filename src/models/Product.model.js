@@ -56,33 +56,16 @@ const productSchema = new mongoose.Schema({
         default:0,
         min: 0,
     },
-    category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-    },
     isActive:{
-        type:bool,
+        type:Boolean,
         default:false
     },
-    subcategory: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Subcategory',
-    },
-    collection: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Collection',
-    },
-    images: [String],
+    imageUrls: [String],
+    imageIds: [String],
     quantity: {
         type: Number,
         default: 0,
     },
-    ratings: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'UserReview',
-        },
-    ],
     variations: [productVariationSchema], 
 }, { timestamps: true }); 
 
